@@ -87,6 +87,8 @@ object GracefulShutdown {
       "zookeeper.connect" -> zookeeper
     )
 
+    //replaces the signal handler in the Spark Framework - this allow to measure the time
+    //between the SIGTERM and SIGKILL signals sent by YARN during "yarn -kill"
     Signal.handle(new Signal("INT"), new SignalHandler() {
 
       var stopFlag = false
