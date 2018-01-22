@@ -43,6 +43,8 @@ object GracefulShutdown {
 
     if (args.length == 1) {
 
+      //ToDo: implement proper config param initalization if the tool gains wide spread use
+      //at the moment this area is simpy a quick hack
       configFilePath = args(0)
       val source = Source.fromFile(configFilePath)
       val lines = source.getLines()
@@ -113,7 +115,7 @@ object GracefulShutdown {
 
     if(master.contains("yarn")){
 
-      if(deploymentMode.contains("client")) {
+      if(deploymentMode.contains("client")){
         conf.set("spark.master", master);
         conf.set("spark.submit.deployMode", deploymentMode);
       }else{
