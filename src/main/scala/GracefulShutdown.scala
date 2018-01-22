@@ -100,7 +100,7 @@ object GracefulShutdown {
 
         while (!stopFlag) {
           println("SIGTERM Signal Handler iteration: " + new Date())
-          Thread.sleep(2000)
+          Thread.sleep(1000)
           stopFlag = fs.exists(new Path(shutdownFlag))
         }
 
